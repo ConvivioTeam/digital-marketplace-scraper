@@ -11,6 +11,13 @@ app.use(helmet({
   dnsPrefetchControl: { allow: true }
 }));
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+
 app.get('/opp/:oppID', async function (req, res) {
   const oppID = req.params.oppID.toString();
   if(oppID) {
