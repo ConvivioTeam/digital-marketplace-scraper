@@ -67,7 +67,8 @@ const getOppData = function (options) {
         data.location = getRowContents($, 'Location');
         data.latest_start_date = getRowContents($, 'Latest start date');
         let skills = [];
-        const $table = $("dl:contains('skills and experience')");
+        const $table = $('dl:contains(Essential skills and experience)');
+        console.log($table.text());
         const $rows = $table.find('.govuk-summary-list__row');
         // A single item is not output as a list.
         $rows.each(function (index) {
